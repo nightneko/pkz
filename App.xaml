@@ -4,6 +4,18 @@
              xmlns:local="clr-namespace:pkz"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- MaterialDesignThemes 기본 설정 -->
+                <materialDesign:BundledTheme BaseTheme="Dark"
+                                             PrimaryColor="DeepPurple"
+                                             SecondaryColor="Lime"
+                                             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"/>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

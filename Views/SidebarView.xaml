@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="pkz.Views.SidebarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="720" d:DesignWidth="220">
+
+    <Grid Background="{DynamicResource MaterialDesignPaper}">
+        <StackPanel Margin="0,16,0,0">
+
+            <!-- 타이틀 -->
+            <TextBlock Text="PKZ"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="20,0,0,24"
+                       Foreground="{DynamicResource MaterialDesignBody}"/>
+
+            <!-- 매니저 목록 -->
+            <ListBox x:Name="ManagerList">
+
+                <!-- winget -->
+                <ListBoxItem Padding="20,12">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="MicrosoftWindows" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="winget" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                        <md:Badged Badge="3" Margin="8,0,0,0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <!-- choco -->
+                <ListBoxItem Padding="20,12">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="Package" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="choco" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                        <md:Badged Badge="1" Margin="8,0,0,0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <!-- npm -->
+                <ListBoxItem Padding="20,12">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="Npm" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="npm" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+            </ListBox>
+        </StackPanel>
+    </Grid>
+
+</UserControl>
