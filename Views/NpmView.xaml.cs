@@ -1,4 +1,5 @@
-﻿using pkz.ViewModels;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace pkz
+namespace pkz.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// UserControl1.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NpmView : UserControl
     {
-        public MainWindow()
+        public NpmView()
         {
             InitializeComponent();
         }

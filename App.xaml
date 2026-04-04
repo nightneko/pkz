@@ -2,20 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:pkz"
+             xmlns:cvt="clr-namespace:pkz.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <!-- MaterialDesignThemes 기본 설정 -->
                 <materialDesign:BundledTheme BaseTheme="Dark"
                                              PrimaryColor="DeepPurple"
                                              SecondaryColor="Lime"
                                              xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"/>
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
-
+                
             </ResourceDictionary.MergedDictionaries>
+            
+            <cvt:CntToVisibleCvt x:Key="cntToVisibleCvt"/>
+            <cvt:ManagerToVisibleCvt x:Key="managerToVisibleCvt"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -5,11 +5,32 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pkz"
+        xmlns:vm="clr-namespace:pkz.ViewModels"
         xmlns:views="clr-namespace:pkz.Views"
         mc:Ignorable="d"
         Title="Window Package Zip(pkz)" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource MaterialDesignPaper}">
+    
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:WingetViewModel}">
+            <views:WingetView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ChocoViewModel}">
+            <views:ChocoView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:NpmViewModel}">
+            <views:NpmView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InstallGuideViewModel}">
+            <views:InstallGuideView/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
@@ -22,5 +43,7 @@
         </Grid.RowDefinitions>
 
         <views:SidebarView Grid.Column="0" Grid.RowSpan="2"/>
+
+        <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

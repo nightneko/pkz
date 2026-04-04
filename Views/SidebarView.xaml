@@ -18,36 +18,23 @@
                        Foreground="{DynamicResource MaterialDesignBody}"/>
 
             <!-- 매니저 목록 -->
-            <ListBox x:Name="ManagerList">
-
-                <!-- winget -->
-                <ListBoxItem Padding="20,12">
-                    <StackPanel Orientation="Horizontal">
-                        <md:PackIcon Kind="MicrosoftWindows" Width="20" Height="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="winget" Margin="12,0,0,0" VerticalAlignment="Center"/>
-                        <md:Badged Badge="3" Margin="8,0,0,0"/>
-                    </StackPanel>
-                </ListBoxItem>
-
-                <!-- choco -->
-                <ListBoxItem Padding="20,12">
-                    <StackPanel Orientation="Horizontal">
-                        <md:PackIcon Kind="Package" Width="20" Height="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="choco" Margin="12,0,0,0" VerticalAlignment="Center"/>
-                        <md:Badged Badge="1" Margin="8,0,0,0"/>
-                    </StackPanel>
-                </ListBoxItem>
-
-                <!-- npm -->
-                <ListBoxItem Padding="20,12">
-                    <StackPanel Orientation="Horizontal">
-                        <md:PackIcon Kind="Npm" Width="20" Height="20" VerticalAlignment="Center"/>
-                        <TextBlock Text="npm" Margin="12,0,0,0" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </ListBoxItem>
-
+            <ListBox ItemsSource="{Binding Managers}"
+                     SelectedItem="{Binding SelectedManagerInfo}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,4">
+                            <md:PackIcon Kind="{Binding IconKind}" Width="20" Height="20" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Name}" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                            
+                            <md:Badged Badge="{Binding UpdateCount}"
+                                       Margin="8,0,0,0"
+                                       Visibility="{Binding UpdateCount, Converter={StaticResource cntToVisibleCvt}}"/>
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+
         </StackPanel>
     </Grid>
-
 </UserControl>
